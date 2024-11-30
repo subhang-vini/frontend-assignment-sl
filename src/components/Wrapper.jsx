@@ -15,8 +15,14 @@ function Wrapper () {
   }, [])
   return (
     <div className='pageContainer'>
-      <h1 className='title'>Projects Data</h1>
-      {error ? <h2>{error}</h2> : null}
+      <h1 className='title' id='main-heading'>
+        Highly-rated Kickstarter Projects
+      </h1>
+      {error ? (
+        <div role='alert' aria-live='assertive'>
+          <h2>{error}</h2>{' '}
+        </div>
+      ) : null}
       <Table data={data} loading={loading} />
       <Pagination page={page} isLastPage={isLastPage} updatePage={updatePage} />
     </div>

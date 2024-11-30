@@ -2,10 +2,11 @@ import '../styles/Table.css'
 
 const Table = ({ data, loading }) => {
   if (loading) {
-    return <div>Loading...</div>
+    return <div aria-live='polite'>Loading...</div>
   }
   return (
-    <table className='project-table'>
+    <table className='project-table' aria-describedby='table-description'>
+      <caption id='table-description'>Project Funding Details</caption>
       <thead>
         <tr>
           <th scope='col'>S.No.</th>
