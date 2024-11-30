@@ -1,11 +1,8 @@
 import './App.css'
-import Wrapper from './components/Wrapper'
-
-const URL__API =
-  'https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json'
+import Wrapper from '@components/Wrapper'
 
 function App () {
-  return <Wrapper url={URL__API} pageSize={5} />
+  return <Wrapper />
 }
 
 export default App

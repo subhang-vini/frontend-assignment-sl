@@ -14,13 +14,15 @@ const Table = ({ data, loading }) => {
         </tr>
       </thead>
       <tbody>
-        {(data || []).map(item => (
-          <tr key={item['s.no']}>
-            <td>{item['s.no']}</td>
-            <td>{item['percentage.funded']}</td>
-            <td>{item['amt.pledged']}</td>
-          </tr>
-        ))}
+        {(data || []).map(item =>
+          item ? (
+            <tr key={item['s.no']}>
+              <td>{item['s.no']}</td>
+              <td>{item['percentage.funded']}</td>
+              <td>{item['amt.pledged']}</td>
+            </tr>
+          ) : null
+        )}
       </tbody>
     </table>
   )

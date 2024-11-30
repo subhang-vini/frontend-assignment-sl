@@ -1,17 +1,15 @@
-import paginatedApiDataWrapper from './apiWrapper'
+import usePaginatedDataFetch from '@hooks/usePaginatedDataFetch'
 import { useEffect } from 'react'
-import Table from './Table'
+import Table from '@components/Table'
 import '../styles/Wrapper.css'
+import Pagination from '@components/Pagination'
 
-function Wrapper ({
-  data,
-  loading,
-  error,
-  page,
-  isLastPage,
-  fetchData,
-  updatePage
-}) {
+const URL__API =
+  'https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json'
+
+function Wrapper () {
+  const { data, loading, error, page, isLastPage, fetchData, updatePage } =
+    usePaginatedDataFetch({ url: URL__API, pageSize: 5 })
   useEffect(() => {
     fetchData()
   }, [])
@@ -20,25 +18,9 @@ function Wrapper ({
       <h1 className='title'>Projects Data</h1>
       {error ? <h2>{error}</h2> : null}
       <Table data={data} loading={loading} />
-      <div className='pagination'>
-        <button
-          aria-label='Previous page'
-          onClick={() => updatePage(page - 1)}
-          disabled={page === 1}
-        >
-          Previous
-        </button>
-        <span className='page-status'>Current Page : {page}</span>
-        <button
-          onClick={() => updatePage(page + 1)}
-          disabled={isLastPage}
-          aria-label='Next page'
-        >
-          Next
-        </button>
-      </div>
+      <Pagination page={page} isLastPage={isLastPage} updatePage={updatePage} />
     </div>
   )
 }
 
-export default paginatedApiDataWrapper(Wrapper)
+export default Wrapper

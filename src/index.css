@@ -23,6 +23,8 @@
   --button-background: #3498db;
   --button-text: #ffffff;
   --button-hover-background: #2980b9;
+  --button-disabled-background: #d6d6d6;
+  --button-disabled-text: #a1a1a1;
 
   @media (prefers-color-scheme: dark) {
     --background-color: #1a1a1a;
@@ -38,6 +40,8 @@
     --button-background: #2980b9;
     --button-text: #ffffff;
     --button-hover-background: #3498db;
+    --button-disabled-background: #4b5563;
+    --button-disabled-text: #d1d5db;
   }
 }
 
